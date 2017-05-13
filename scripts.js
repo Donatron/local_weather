@@ -35,7 +35,34 @@ function displayLocation(latitude,longitude){
  displayLocation(x,y);
   };
 
-
  navigator.geolocation.getCurrentPosition(successCallback);
+
+ //Call weather information for current location
+ function getWeather(latitude, longitude) {
+   var request = new XMLHttpRequest();
+   var key = 'f80622035591f98bd40d14d8bda018b6';
+
+   var method = 'GET';
+   var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude +
+   '&lon=' + longitude + '&APPID=' + key;
+   var async = true;
+
+   request.open(method, url, async);
+   request.onreadystatechange == function() {
+     if (request.readyState == 4 && request.status === 200)  {
+       var data = JSON.parse(request.responseText);
+       console.log(data);
+     }
+   }
+   request.send();
+ };
+
+ var weatherCallback = function(position){
+ var x = position.coords.latitude;
+ var y = position.coords.longitude;
+ getWeather(x,y);
+  };
+
+  navigator.geolocation.getCurrentPosition(weatherCallback);
 
  });
