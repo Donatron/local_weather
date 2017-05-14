@@ -4,7 +4,7 @@ var loc = document.getElementById("location");
 
 // Call Google Maps API to get city name
 function displayLocation(latitude,longitude){
-        var request = new XMLHttpRequest();
+       var request = new XMLHttpRequest();
 
        var method = 'GET';
        var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
@@ -44,14 +44,15 @@ function displayLocation(latitude,longitude){
 
    var method = 'GET';
    var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude +
-   '&lon=' + longitude + '&APPID=' + key;
+   '&lon=' + longitude + '&units=metric' + '&APPID=' + key;
    var async = true;
 
    request.open(method, url, async);
-   request.onreadystatechange == function() {
+   request.onreadystatechange = function() {
      if (request.readyState == 4 && request.status === 200)  {
        var data = JSON.parse(request.responseText);
-       console.log(data);
+      //  alert(request.responseText);
+       console.log(data.main);
      }
    }
    request.send();
@@ -61,7 +62,7 @@ function displayLocation(latitude,longitude){
  var x = position.coords.latitude;
  var y = position.coords.longitude;
  getWeather(x,y);
-  };
+ };
 
   navigator.geolocation.getCurrentPosition(weatherCallback);
 
