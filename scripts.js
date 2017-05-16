@@ -4,6 +4,8 @@ var loc = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var forecast = document.getElementById("forecast");
 var wind = document.getElementById("wind");
+var icon = document.getElementById("icon");
+var temperature = document.getElementById("temperature");
 
 // Call Google Maps API to get city name
 function displayLocation(latitude,longitude){
@@ -65,6 +67,9 @@ function displayLocation(latitude,longitude){
         wind.innerHTML = data.wind.speed + "m/s " +
         degToCompass(data.wind.deg);
 
+        //Add weather icon
+        icon.innerHTML = "<img src='http://openweathermap.org/img/w/" +
+                          data.weather[0].icon + ".png' alt='weather icon' height='80' width='80' id='weather-icon'>";
      }
    }
    request.send();

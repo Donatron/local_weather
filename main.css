@@ -21,6 +21,10 @@ body {
   color: white;
 }
 
+#weather-icon {
+  margin-right: 20px;
+}
+
 .fa {
   font-size: 40px;
   margin-top: auto;
