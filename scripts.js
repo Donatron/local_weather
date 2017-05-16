@@ -3,6 +3,7 @@ $(document).ready(function() {
 var loc = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var forecast = document.getElementById("forecast");
+var wind = document.getElementById("wind");
 
 // Call Google Maps API to get city name
 function displayLocation(latitude,longitude){
@@ -59,6 +60,11 @@ function displayLocation(latitude,longitude){
 
         //Update forecast
         forecast.innerHTML = data.weather[0].main;
+
+        //Update wind direction
+        wind.innerHTML = data.wind.speed + "m/s " +
+        degToCompass(data.wind.deg);
+
      }
    }
    request.send();
@@ -71,5 +77,11 @@ function displayLocation(latitude,longitude){
  };
 
   navigator.geolocation.getCurrentPosition(weatherCallback);
+
+  function degToCompass(num) {
+    var val = Math.floor((num / 22.5) + 0.5);
+    var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    return arr[(val % 16)];
+  };
 
  });
