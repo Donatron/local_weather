@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 var loc = document.getElementById("location");
+var temp = document.getElementById("temperature");
 
 // Call Google Maps API to get city name
 function displayLocation(latitude,longitude){
@@ -52,7 +53,8 @@ function displayLocation(latitude,longitude){
      if (request.readyState == 4 && request.status === 200)  {
        var data = JSON.parse(request.responseText);
       //  alert(request.responseText);
-       console.log(data.main);
+       var currentTemp = data.main.temp;
+       temp.innerHTML = currentTemp + ' C';
      }
    }
    request.send();
