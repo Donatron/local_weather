@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 var loc = document.getElementById("location");
 var temp = document.getElementById("temperature");
+var forecast = document.getElementById("forecast");
 
 // Call Google Maps API to get city name
 function displayLocation(latitude,longitude){
@@ -52,9 +53,12 @@ function displayLocation(latitude,longitude){
    request.onreadystatechange = function() {
      if (request.readyState == 4 && request.status === 200)  {
        var data = JSON.parse(request.responseText);
-      //  alert(request.responseText);
-       var currentTemp = data.main.temp;
-       temp.innerHTML = currentTemp + ' C';
+
+        // Update temperature
+        temp.innerHTML = data.main.temp + ' C';
+
+        //Update forecast
+        forecast.innerHTML = data.weather[0].main;
      }
    }
    request.send();
