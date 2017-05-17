@@ -61,7 +61,7 @@ function displayLocation(latitude,longitude){
         temp.innerHTML = data.main.temp + ' C';
 
         //Update forecast
-        forecast.innerHTML = data.weather[0].main;
+        forecast.innerHTML = data.weather[0].description;
 
         //Update wind direction
         wind.innerHTML = data.wind.speed + "m/s " +
@@ -70,6 +70,8 @@ function displayLocation(latitude,longitude){
         //Add weather icon
         icon.innerHTML = "<img src='http://openweathermap.org/img/w/" +
                           data.weather[0].icon + ".png' alt='weather icon' height='80' width='80' id='weather-icon'>";
+
+                          console.log(url);
      }
    }
    request.send();
