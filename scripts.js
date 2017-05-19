@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+var key = 'f80622035591f98bd40d14d8bda018b6';
+
 var loc = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var forecast = document.getElementById("forecast");
@@ -42,13 +44,12 @@ function displayLocation(latitude,longitude){
 
  navigator.geolocation.getCurrentPosition(successCallback);
 
- //Call weather information for current location
+ //Call weather information for current location and current day
  function getWeather(latitude, longitude) {
    var request = new XMLHttpRequest();
-   var key = 'f80622035591f98bd40d14d8bda018b6';
 
    var method = 'GET';
-   var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude +
+   var url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude +
    '&lon=' + longitude + '&units=metric' + '&APPID=' + key;
    var async = true;
 
@@ -58,18 +59,18 @@ function displayLocation(latitude,longitude){
        var data = JSON.parse(request.responseText);
 
         // Update temperature
-        temp.innerHTML = data.main.temp + ' C';
+        temp.innerHTML = data.list[0].main.temp + ' C';
 
         //Update forecast
-        forecast.innerHTML = data.weather[0].description;
+        forecast.innerHTML = data.list[0].weather[0].description;
 
         //Update wind direction
-        wind.innerHTML = data.wind.speed + "m/s " +
-        degToCompass(data.wind.deg);
+        wind.innerHTML = data.list[0].wind.speed + "m/s " +
+        degToCompass(data.list[0].wind.deg);
 
         //Add weather icon
         icon.innerHTML = "<img src='http://openweathermap.org/img/w/" +
-                          data.weather[0].icon + ".png' alt='weather icon' height='80' width='80' id='weather-icon'>";
+                          data.list[0].weather[0].icon + ".png' alt='weather icon' height='80' width='80' id='weather-icon'>";
 
                           console.log(url);
      }
@@ -89,6 +90,12 @@ function displayLocation(latitude,longitude){
     var val = Math.floor((num / 22.5) + 0.5);
     var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
     return arr[(val % 16)];
+  };
+
+  //Call weather information for current location and 5 day forecast
+  function getForecast(latitude, longitude) {
+    var request = new XMLHttpRequest();
+
   };
 
  });
