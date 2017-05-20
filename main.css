@@ -37,31 +37,30 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  vertical-align: middle;
 }
 
 .location {
   margin-top: 30px;
-  background-color: green;
-}
-
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .label,
 .label-default {
   font-size: 30px !important;
   background-color: #fff;
-  color: #888;
-  opacity: .5;
+  color: #333;
+  opacity: .7;
 }
 
 .forecast {
-  background-color: red;
-  height: 300px;
+  background-color: #fff;
+  color: #333;
+  opacity: 0.7;
+  min-height: 300px;
   margin-top: 30px;
+  margin-bottom: 50px;
+
+  border-radius: .5em;
 }
 
 .forecast-details {
@@ -71,7 +70,10 @@ body {
 }
 
 .forecast-details p {
-  background-color: black;
   display: inline-block;
   padding-right: 10px;
+}
+
+.forecast-details p:last-child {
+  margin-bottom: 30px;
 }

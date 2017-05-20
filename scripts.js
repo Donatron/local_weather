@@ -8,6 +8,10 @@ var forecast = document.getElementById("forecast");
 var wind = document.getElementById("wind");
 var icon = document.getElementById("icon");
 var temperature = document.getElementById("temperature");
+var fiveDaysForecast = document.getElementById("forecast-details");
+
+var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // Call Google Maps API to get city name
 function displayLocation(latitude,longitude){
@@ -73,6 +77,26 @@ function displayLocation(latitude,longitude){
                           data.list[0].weather[0].icon + ".png' alt='weather icon' height='80' width='80' id='weather-icon'>";
 
                           console.log(url);
+
+        //Populate 5 day forecast data
+        var html = "";
+
+        for (var i=0; i<=data.list.length; i+=8) {
+          var d = new Date(data.list[i].dt * 1000);
+          var date = d.getDate();
+          var month = d.getMonth();
+          month = monthNames[month];
+          html += "<h4><i>";
+          html += (date + " " + month);
+          html += "</i></h4>";
+
+          html += "<div class='forecast-details'>";
+          html += "<p>" + data.list[i].main.temp + " C</p>";
+          html += "<p>" + data.list[i].weather[0].description + "</p>";
+          html += "</div>";
+        }
+
+        fiveDaysForecast.innerHTML = html;
      }
    }
    request.send();
