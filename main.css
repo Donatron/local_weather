@@ -74,6 +74,10 @@ h3 {
   padding-right: 10px;
 }
 
-.forecast-details p:last-child {
-  margin-bottom: 30px;
+#forecast-details {
+  margin-top: 20px;
+}
+
+#forecast-details:last-child {
+  margin-bottom: 20px;
 }

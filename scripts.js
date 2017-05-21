@@ -63,7 +63,7 @@ function displayLocation(latitude,longitude){
        var data = JSON.parse(request.responseText);
 
         // Update temperature
-        temp.innerHTML = data.list[0].main.temp + ' C';
+        temp.innerHTML = Math.round(data.list[0].main.temp) + ' C';
 
         //Update forecast
         forecast.innerHTML = data.list[0].weather[0].description;
@@ -91,7 +91,7 @@ function displayLocation(latitude,longitude){
           html += "</i></h4>";
 
           html += "<div class='forecast-details'>";
-          html += "<p>" + data.list[i].main.temp + " C</p>";
+          html += "<p>" + Math.round(data.list[i].main.temp) + " C</p>";
           html += "<p>" + data.list[i].weather[0].description + "</p>";
           html += "</div>";
         }
