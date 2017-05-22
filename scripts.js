@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 var key = 'f80622035591f98bd40d14d8bda018b6';
 
+var body = document.getElementById("body");
 var loc = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var forecast = document.getElementById("forecast");
@@ -12,6 +13,14 @@ var fiveDaysForecast = document.getElementById("forecast-details");
 
 var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+var conditions = {Thunderstorm: "images/stormy.jpg",
+                  Drizzle: "images/rainy.jpg",
+                  Rain: "images/rainy.jpg",
+                  Snow: "images/snowy.jpg",
+                  Clear: "images/sunny.jpg",
+                  Clouds: "images/overcast.jpg",
+                  Extreme: "images/stormy.jpg"};
 
 // Call Google Maps API to get city name
 function displayLocation(latitude,longitude){
@@ -76,12 +85,10 @@ function displayLocation(latitude,longitude){
         icon.innerHTML = "<img src='http://openweathermap.org/img/w/" +
                           data.list[0].weather[0].icon + ".png' alt='weather icon' height='80' width='80' id='weather-icon'>";
 
-                          console.log(url);
-
         //Populate 5 day forecast data
         var html = "";
 
-        for (var i=0; i<=data.list.length; i+=8) {
+        for (var i=0; i<data.list.length; i+=8) {
           var d = new Date(data.list[i].dt * 1000);
           var date = d.getDate();
           var month = d.getMonth();
@@ -97,6 +104,13 @@ function displayLocation(latitude,longitude){
         }
 
         fiveDaysForecast.innerHTML = html;
+
+        //Update website background image
+        //Find current weather conditions from API call
+        var apiConditions = data.list[0].weather[0].main;
+
+        setBackground(conditions[apiConditions]);
+
      }
    }
    request.send();
@@ -116,10 +130,11 @@ function displayLocation(latitude,longitude){
     return arr[(val % 16)];
   };
 
-  //Call weather information for current location and 5 day forecast
-  function getForecast(latitude, longitude) {
-    var request = new XMLHttpRequest();
-
+  //Call current weather conditions to set backgound image
+  function setBackground(currentConditions) {
+    body.style.background = "url('" + currentConditions + "')";
+    body.style.backgroundSize = "cover";
+    body.style.backgroundRepeat = "no-repeat";
   };
 
  });
