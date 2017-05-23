@@ -3,6 +3,8 @@ $(document).ready(function() {
 var key = 'f80622035591f98bd40d14d8bda018b6';
 
 var body = document.getElementById("body");
+var weather = document.getElementById("weather");
+var welcome = document.getElementById("welcome");
 var loc = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var forecast = document.getElementById("forecast");
@@ -21,6 +23,9 @@ var conditions = {Thunderstorm: "images/stormy.jpg",
                   Clear: "images/sunny.jpg",
                   Clouds: "images/overcast.jpg",
                   Extreme: "images/stormy.jpg"};
+
+//Hide weather data until ready
+weather.hidden = true;
 
 // Call Google Maps API to get city name
 function displayLocation(latitude,longitude){
@@ -69,6 +74,9 @@ function displayLocation(latitude,longitude){
    request.open(method, url, async);
    request.onreadystatechange = function() {
      if (request.readyState == 4 && request.status === 200)  {
+       //Hide welcome message and display weather
+       welcome.hidden = true;
+       weather.hidden = false;
        var data = JSON.parse(request.responseText);
 
         // Update temperature

@@ -6,7 +6,6 @@
 }
 
 body {
-  background: url('images/sunny.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -20,6 +19,16 @@ body {
 h1 {
   color: #ccc;
   text-shadow: 1px 2px #000;
+}
+
+#welcome {
+  text-align: center;
+  text-shadow: none !important;
+}
+
+.fa-spinner {
+  font-size: 30px;
+  margin-top: 20px;
 }
 
 .weather {
