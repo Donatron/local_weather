@@ -1,0 +1,143 @@
+/******************
+PostCSS Variables
+******************/
+
+:root {
+  --background: skyblue;
+  --heading: #ccc;
+  --white: #fff;
+  --grey: #333;
+  --lightgrey: #888;
+  --black: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--background);
+
+  font-family: sans-serif;
+}
+
+.page-header {
+  text-align: center;
+}
+
+h1 {
+  color: var(--heading);
+  text-shadow: 1px 2px var(--black);
+}
+
+#welcome {
+  text-align: center;
+  text-shadow: none !important;
+}
+
+.fa-spinner {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.weather {
+  text-align: center;
+  color: var(--white);
+}
+
+#weather-icon {
+  margin-top: auto;
+  padding: 0;
+}
+
+.temperature {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+h3 {
+  font-size: 30px;
+  text-shadow: 1px 1px var(--lightgrey);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.location {
+  margin-top: 30px;
+}
+
+.label,
+.label-default {
+  font-size: 40px !important;
+  background-color: var(--white);
+  color: var(--grey);
+  opacity: .7;
+}
+
+.forecast {
+  background-color: var(--white);
+  color: var(--grey);
+  opacity: 0.7;
+  min-height: 300px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+
+  border-radius: .5em;
+}
+
+.forecast-details {
+  display: table;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.forecast-details p {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+#forecast-details {
+  margin-top: 20px;
+}
+
+#forecast-details:last-child {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: var(--white);
+  color: var(--grey);
+  opacity: 0.7;
+}
+
+footer p {
+  padding-top: 10px;
+}
+
+
+/*********************************
+MEDIA QUERIES
+*********************************/
+
+@media screen and (max-width: 768px) {
+  .label,
+  .label-default,
+  h2 {
+    font-size: 34px !important;
+  }
+
+  h4 {
+    font-size: 28px;
+  }
+
+  .forecast-details p {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "local_weather",
+  "version": "1.0.0",
+  "description": "Website to capture and display weather information based on user's location",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Donatron/local_weather.git"
+  },
+  "author": "Don Macarthur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Donatron/local_weather/issues"
+  },
+  "homepage": "https://github.com/Donatron/local_weather#readme",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^7.0.0",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-pxtorem": "^4.0.1"
+  }
+}
