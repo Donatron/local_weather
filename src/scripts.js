@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var key = 'f80622035591f98bd40d14d8bda018b6';
+var key = '13911c4d1ec385625389985ff8407eb9';
 
 var body = document.getElementById("body");
 var weather = document.getElementById("weather");
@@ -132,6 +132,7 @@ function displayLocation(latitude,longitude){
 
   navigator.geolocation.getCurrentPosition(weatherCallback);
 
+  //Work out wind direction from responseText on weather API call
   function degToCompass(num) {
     var val = Math.floor((num / 22.5) + 0.5);
     var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
@@ -144,5 +145,5 @@ function displayLocation(latitude,longitude){
     body.style.backgroundSize = "cover";
     body.style.backgroundRepeat = "no-repeat";
   };
-
+  
  });
