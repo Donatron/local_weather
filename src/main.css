@@ -45,6 +45,10 @@ h1 {
   margin-top: 20px;
 }
 
+#disclaimer {
+  text-align: center;
+}
+
 .weather {
   text-align: center;
   color: var(--white);

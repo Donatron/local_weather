@@ -32,7 +32,7 @@ function displayLocation(latitude,longitude){
        var request = new XMLHttpRequest();
 
        var method = 'GET';
-       var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+       var url = 'https://cors-anywhere.herokuapp.com/http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
        var async = true;
 
        request.open(method, url, async);
@@ -145,5 +145,5 @@ function displayLocation(latitude,longitude){
     body.style.backgroundSize = "cover";
     body.style.backgroundRepeat = "no-repeat";
   };
-  
+
  });
