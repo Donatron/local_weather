@@ -3,7 +3,7 @@ PostCSS Variables
 ******************/
 
 :root {
-  --background: skyblue;
+  --background: radial-gradient(circle at center,  rgba(135,206,250,1) 0%, rgba(135,206,250,1) 15%, rgba(0,191,255,1) 97%, rgba(0,191,255,1) 100%);
   --heading: #ccc;
   --white: #fff;
   --grey: #333;
@@ -21,7 +21,7 @@ PostCSS Variables
 body {
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: var(--background);
+  background: var(--background);
 
   font-family: sans-serif;
 }
