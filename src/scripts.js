@@ -32,7 +32,7 @@ function displayLocation(latitude,longitude){
        var request = new XMLHttpRequest();
 
        var method = 'GET';
-       var url = 'https://cors-anywhere.herokuapp.com/http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+       var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
        var async = true;
 
        request.open(method, url, async);
@@ -67,7 +67,7 @@ function displayLocation(latitude,longitude){
    var request = new XMLHttpRequest();
 
    var method = 'GET';
-   var url = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude +
+   var url = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude +
    '&lon=' + longitude + '&units=metric' + '&APPID=' + key;
    var async = true;
 
