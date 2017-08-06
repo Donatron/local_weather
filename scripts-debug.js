@@ -32,7 +32,7 @@ function displayLocation(latitude,longitude){
        var request = new XMLHttpRequest();
 
        var method = 'GET';
-       var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+       var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
        var async = true;
 
        request.open(method, url, async);
@@ -90,7 +90,7 @@ function displayLocation(latitude,longitude){
         degToCompass(data.list[0].wind.deg);
 
         //Add weather icon
-        icon.innerHTML = "<img src='https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/w/" +
+        icon.innerHTML = "<img src='https://openweathermap.org/img/w/" +
                           data.list[0].weather[0].icon + ".png' alt='weather icon' height='80' width='80' id='weather-icon'>";
 
         //Populate 5 day forecast data
