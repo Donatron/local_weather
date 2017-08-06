@@ -67,7 +67,7 @@ function displayLocation(latitude,longitude){
    var request = new XMLHttpRequest();
 
    var method = 'GET';
-   var url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + latitude +
+   var url = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude +
    '&lon=' + longitude + '&units=metric' + '&APPID=' + key;
    var async = true;
 
