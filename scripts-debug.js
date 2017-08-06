@@ -90,7 +90,7 @@ function displayLocation(latitude,longitude){
         degToCompass(data.list[0].wind.deg);
 
         //Add weather icon
-        icon.innerHTML = "<img src='http://openweathermap.org/img/w/" +
+        icon.innerHTML = "<img src='https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/w/" +
                           data.list[0].weather[0].icon + ".png' alt='weather icon' height='80' width='80' id='weather-icon'>";
 
         //Populate 5 day forecast data
