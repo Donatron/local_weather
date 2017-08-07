@@ -87,6 +87,9 @@ h3 {
 .location span {
   margin-top: 20px;
 }
+span {
+  display: inline-block;
+}
 
 .label,
 .label-default {
